@@ -2,10 +2,11 @@ require 'formula'
 
 class Drush < Formula
   homepage 'http://drupal.org/project/drush'
-  url 'http://ftp.drupal.org/files/projects/drush-8.x-6.0-rc2.tar.gz'
-  sha1 '73923e3ea35131a1aad76a67eeba2e1c21942fef'
+  url 'https://github.com/drush-ops/drush/archive/6.1.0.tar.gz'
+  version '6.1.0'
+  sha1 '81b963e91ff1cb8617e8ed974ac07bb25f509bcf'
 
-  head 'git://git.drupal.org/project/drush.git', :branch => '8.x-6.x'
+  head 'https://github.com/drush-ops/drush.git', :branch => '6.x'
 
   def install
     libexec.install Dir['*']
