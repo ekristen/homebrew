@@ -2,8 +2,8 @@ require 'formula'
 
 class RubyBuild < Formula
   homepage 'https://github.com/sstephenson/ruby-build'
-  url 'https://github.com/sstephenson/ruby-build/archive/v20130628.tar.gz'
-  sha1 'a26df829fa089807c30422a2df04348b3b4ec1b5'
+  url 'https://github.com/sstephenson/ruby-build/archive/v20131028.tar.gz'
+  sha1 '4fa33cbcc5f84f2e7b4ec160fb3fd5119ad11404'
 
   head 'https://github.com/sstephenson/ruby-build.git'
 
@@ -13,5 +13,9 @@ class RubyBuild < Formula
   def install
     ENV['PREFIX'] = prefix
     system "./install.sh"
+  end
+
+  test do
+    system "#{bin}/ruby-build --version | grep #{version}"
   end
 end

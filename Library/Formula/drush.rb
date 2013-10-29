@@ -9,7 +9,8 @@ class Drush < Formula
   head 'https://github.com/drush-ops/drush.git', :branch => '6.x'
 
   def install
-    libexec.install Dir['*']
+    prefix.install_metafiles
+    libexec.install Dir['*'] -['drush.bat']
     bin.install_symlink libexec/'drush'
     bash_completion.install libexec/'drush.complete.sh' => 'drush'
   end
