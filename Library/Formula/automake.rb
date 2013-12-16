@@ -13,7 +13,7 @@ class Automake < Formula
   end
 
   # Always needs a newer autoconf, even on Snow Leopard.
-  depends_on 'autoconf'
+  depends_on 'autoconf' => :run
 
   if MacOS::Xcode.provides_autotools? or File.file? "/usr/bin/automake"
     keg_only "Xcode (up to and including 4.2) provides (a rather old) Automake."
@@ -26,7 +26,7 @@ class Automake < Formula
     system "make install"
 
     # Our aclocal must go first. See:
-    # https://github.com/mxcl/homebrew/issues/10618
+    # https://github.com/Homebrew/homebrew/issues/10618
     (share/"aclocal/dirlist").write <<-EOS.undent
       #{HOMEBREW_PREFIX}/share/aclocal
       /usr/share/aclocal
